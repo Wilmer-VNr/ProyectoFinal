@@ -9,7 +9,7 @@ public class Main {
         JFrame frame = new JFrame("Login");
         frame.setContentPane(new form1().mainPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 300);
+        frame.setSize(480, 350);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
