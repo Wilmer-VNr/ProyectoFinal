@@ -1,56 +1,51 @@
 package org.example;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class form1 {
-    private JTextField usuario;
     public JPanel mainPanel;
-    private JTextField password;
-    private JButton iniciarSesion;
-    private JButton crearCuenta;
+    public JPanel mainPanel2;
+    private JTextField user;
+    private JButton iniciarSesión;
+    private JPasswordField passwordField1;
+
 
     public form1() {
-        iniciarSesion.addActionListener(new ActionListener() {
+
+        iniciarSesión.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String username = usuario.getText();
-                String pass = password.getText();
+                String username = user.getText();
+                String password = new String(passwordField1.getPassword());
 
-                String url = "jdbc:mysql://127.0.0.1:3306/aulaEsfot";
-                String user = "root";
-                String password = "1234";
+                String url = "jdbc:mysql://127.0.0.1:3306/language";
+                String userDb = "root";
+                String passwordDb = "";
 
-                try (Connection connection = DriverManager.getConnection(url, user, password)) {
+                try (Connection connection = DriverManager.getConnection(url, userDb, passwordDb)) {
                     System.out.println("Conexión con la base de datos exitosa");
-
-
-
+                    JFrame frame = new JFrame("Bienvenido Administrador");
+                    frame.setContentPane(new form2().mainPanel);
+                    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                    frame.setSize(400, 450);
+                    frame.setLocationRelativeTo(null);
+                    frame.setVisible(true);
+                    //https://stackoverflow.com/questions/12224431/create-a-root-password-for-phpmyadmin
 
                 } catch (SQLException ex) {
                     ex.printStackTrace();
-                    JOptionPane.showMessageDialog(mainPanel, "Credenciales incorrectos.");
+                    JOptionPane.showMessageDialog(mainPanel, "Error al conectar con la base de datos.");
                 }
-            }
-        });
-        crearCuenta.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JFrame frame = new JFrame("Login");
-                frame.setContentPane(new form1().mainPanel);
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.setSize(480, 350);
-                frame.setLocationRelativeTo(null);
-                frame.setVisible(true);
-
             }
         });
     }
 
 
 }
+
