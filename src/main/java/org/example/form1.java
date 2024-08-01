@@ -1,42 +1,58 @@
 package org.example;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class form1 {
     public JPanel mainPanel;
     public JPanel mainPanel2;
-    private JTextField user;
+    private JTextField usuario;
     private JButton iniciarSesión;
     private JPasswordField passwordField1;
-
+    private JComboBox perfil;
 
     public form1() {
-
         iniciarSesión.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String username = user.getText();
-                String password = new String(passwordField1.getPassword());
+                String usuarioText = usuario.getText();
+                String passwordText = new String(passwordField1.getPassword());
+                String role = perfil.getSelectedItem().toString();
 
-                String url = "jdbc:mysql://127.0.0.1:3306/language";
-                String userDb = "root";
-                String passwordDb = "";
+                String url = "jdbc:mysql://localhost:3306/aulaEsfot";
+                String user = "root";
+                String password = ""; // Asegúrate de que esta contraseña sea la correcta
 
-                try (Connection connection = DriverManager.getConnection(url, userDb, passwordDb)) {
+                String sql = "SELECT * FROM usuarios WHERE username = ? AND password = ? AND perfil = ?";
+
+                try (Connection connection = DriverManager.getConnection(url, user, password)) {
                     System.out.println("Conexión con la base de datos exitosa");
-                    JFrame frame = new JFrame("Bienvenido Administrador");
-                    frame.setContentPane(new form2().mainPanel);
-                    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                    frame.setSize(400, 450);
-                    frame.setLocationRelativeTo(null);
-                    frame.setVisible(true);
-                    //https://stackoverflow.com/questions/12224431/create-a-root-password-for-phpmyadmin
+
+                    PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+                    preparedStatement.setString(1, usuarioText);
+                    preparedStatement.setString(2, passwordText);
+                    preparedStatement.setString(3, role);
+
+                    ResultSet resultSet = preparedStatement.executeQuery();
+
+                    if (resultSet.next()) {
+                        JOptionPane.showMessageDialog(mainPanel, "Inicio de sesión exitoso.");
+                        JFrame frame = new JFrame("Administrador");
+                        frame.setContentPane(new admin().mainPanel);
+                        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                        frame.setSize(400, 500);
+                        frame.setLocationRelativeTo(null);
+                        frame.setVisible(true);
+                    } else {
+                        JOptionPane.showMessageDialog(mainPanel, "Usuario, contraseña o perfil incorrectos.");
+                    }
 
                 } catch (SQLException ex) {
                     ex.printStackTrace();
@@ -45,7 +61,4 @@ public class form1 {
             }
         });
     }
-
-
 }
-

@@ -8,13 +8,13 @@ public class form2 {
     public JPanel mainPanel;
     private JTextField nombre;
     private JTextField apellido;
-    private JTextField cargo;
     private JTextField edad;
     private JTextField telefono;
     private JTextField email;
     private JButton registrar;
     private JButton cancelarButton;
     private JTextField cedula;
+    private JComboBox comboBox1;
 
     public form2() {
 
@@ -34,10 +34,10 @@ public class form2 {
         cancelarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JFrame frame = new JFrame();
+                JFrame frame = new JFrame("Sistema de Reservas de Aulas de la ESFOT");
                 frame.setContentPane(new form1().mainPanel);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.setSize(800, 600);
+                frame.setSize(400, 500);
                 frame.setLocationRelativeTo(null);
                 frame.setVisible(true);
             }

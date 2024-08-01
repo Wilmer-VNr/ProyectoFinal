@@ -26,14 +26,6 @@
         </constraints>
         <properties/>
       </component>
-      <component id="41a1c" class="javax.swing.JTextField" binding="cargo">
-        <constraints>
-          <grid row="6" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
-          </grid>
-        </constraints>
-        <properties/>
-      </component>
       <component id="c6070" class="javax.swing.JTextField" binding="edad">
         <constraints>
           <grid row="7" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
@@ -79,7 +71,7 @@
           <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Cargo:"/>
+          <text value="Especialidad:"/>
         </properties>
       </component>
       <component id="73aee" class="javax.swing.JLabel">
@@ -177,6 +169,19 @@
         </constraints>
         <properties>
           <text value=""/>
+        </properties>
+      </component>
+      <component id="e8dad" class="javax.swing.JComboBox" binding="comboBox1" default-binding="true">
+        <constraints>
+          <grid row="6" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <model>
+            <item value=""/>
+            <item value="Administrador"/>
+            <item value="Profesor"/>
+            <item value="Estudiante"/>
+          </model>
         </properties>
       </component>
     </children>
