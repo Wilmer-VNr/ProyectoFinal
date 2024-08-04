@@ -44,12 +44,33 @@ public class form1 {
 
                     if (resultSet.next()) {
                         JOptionPane.showMessageDialog(mainPanel, "Inicio de sesión exitoso.");
-                        JFrame frame = new JFrame("Administrador");
-                        frame.setContentPane(new admin().mainPanel);
+
+                        JFrame frame = new JFrame();
+
+
+                        switch (role) {
+                            case "Administrador":
+                                frame.setContentPane(new admin().mainPanel);
+                                frame.setTitle("Administrador");
+                                break;
+                            case "Profesor":
+                                frame.setContentPane(new profesor().mainPanel);
+                                frame.setTitle("Profesor");
+                                break;
+                            case "Estudiante":
+                                frame.setContentPane(new estudiante().mainPanel);
+                                frame.setTitle("Estudiante");
+                                break;
+                            default:
+                                JOptionPane.showMessageDialog(mainPanel, "Perfil no reconocido.");
+                                return;
+                        }
+
                         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                         frame.setSize(400, 500);
                         frame.setLocationRelativeTo(null);
                         frame.setVisible(true);
+
                     } else {
                         JOptionPane.showMessageDialog(mainPanel, "Usuario, contraseña o perfil incorrectos.");
                     }
