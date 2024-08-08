@@ -25,6 +25,7 @@ public class home {
                 frame.setSize(400, 550);
                 frame.setLocationRelativeTo(null);
                 frame.setVisible(true);
+                SwingUtilities.getWindowAncestor(mainPanel).dispose();
 
             }
         });
@@ -37,6 +38,7 @@ public class home {
                 frame.setSize(400, 500);
                 frame.setLocationRelativeTo(null);
                 frame.setVisible(true);
+                SwingUtilities.getWindowAncestor(mainPanel).dispose();
             }
         });
     }

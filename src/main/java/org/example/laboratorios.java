@@ -1,13 +1,11 @@
 package org.example;
 
-public class laboratorios extends aulas{
+public class laboratorios extends aulas {
 
-
-    //construtor
-    public laboratorios(String id, String nombre, int capacidad, boolean disponible){
-        super(id, nombre, capacidad, disponible);
-
+    // Constructor
+    public laboratorios(String idAula, String reservadoPor, int totalAulas, int capacidad, int disponibles) {
+        super(idAula, reservadoPor, totalAulas, capacidad, disponibles);
     }
 
-
 }
+

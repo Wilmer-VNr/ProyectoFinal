@@ -12,5 +12,6 @@ public class Main {
         frame.setSize(2000, 872);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+
     }
 }

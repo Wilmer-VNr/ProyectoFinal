@@ -61,8 +61,6 @@ public class form1 {
                                 break;
                             case "Profesor":
                                 JFrame frame2 = new JFrame();
-                                //frame2.setUndecorated(true);
-
                                 frame2.setContentPane(new profesor().profesorPanel);
                                 frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                                 frame2.setSize(2000, 872);

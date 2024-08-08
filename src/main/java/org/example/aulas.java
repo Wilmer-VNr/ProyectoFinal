@@ -1,36 +1,44 @@
 package org.example;
 
 public class aulas {
-    String id;
-    String nombre;
-    int capacidad;
-    boolean disponible;
+    private String idAula;
+    private String reservadoPor;
+    private int totalAulas;
+    private int capacidad;
+    private int disponibles;
 
-    //construtor
-
-    public aulas(String id, String nombre, int capacidad, boolean disponible){
-
-        this.id = id;
-        this.nombre = nombre;
+    // Constructor
+    public aulas(String idAula, String reservadoPor, int totalAulas, int capacidad, int disponibles) {
+        this.idAula = idAula;
+        this.reservadoPor = reservadoPor;
+        this.totalAulas = totalAulas;
         this.capacidad = capacidad;
-        this.disponible = disponible;
-
+        this.disponibles = disponibles;
     }
 
-    public String getId() {
-        return id;
+    // Getters y Setters
+    public String getIdAula() {
+        return idAula;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setIdAula(String idAula) {
+        this.idAula = idAula;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getReservadoPor() {
+        return reservadoPor;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setReservadoPor(String reservadoPor) {
+        this.reservadoPor = reservadoPor;
+    }
+
+    public int getTotalAulas() {
+        return totalAulas;
+    }
+
+    public void setTotalAulas(int totalAulas) {
+        this.totalAulas = totalAulas;
     }
 
     public int getCapacidad() {
@@ -41,12 +49,11 @@ public class aulas {
         this.capacidad = capacidad;
     }
 
-    public boolean isDisponible() {
-        return disponible;
+    public int getDisponibles() {
+        return disponibles;
     }
 
-    public void setDisponible(boolean disponible) {
-        this.disponible = disponible;
+    public void setDisponibles(int disponibles) {
+        this.disponibles = disponibles;
     }
-
 }

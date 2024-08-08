@@ -7,7 +7,7 @@
     <properties/>
     <border type="none"/>
     <children>
-      <grid id="19a62" layout-manager="GridLayoutManager" row-count="13" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="19a62" layout-manager="GridLayoutManager" row-count="12" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -31,24 +31,13 @@
           </component>
           <component id="91f82" class="javax.swing.JButton" binding="aulasButton" default-binding="true">
             <constraints>
-              <grid row="8" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="7" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <background color="-1854821"/>
               <font name="Bernard MT Condensed" size="16" style="0"/>
               <icon value="icons-ventana/home.png"/>
               <text value="Aulas           "/>
-            </properties>
-          </component>
-          <component id="b0f56" class="javax.swing.JButton" binding="profesoresButton" default-binding="true">
-            <constraints>
-              <grid row="7" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <background color="-1854821"/>
-              <font name="Bernard MT Condensed" size="16" style="0"/>
-              <icon value="icons-ventana/person.png"/>
-              <text value="Profesores    "/>
             </properties>
           </component>
           <component id="be4e" class="javax.swing.JButton" binding="estudiantesButton" default-binding="true">
@@ -59,12 +48,12 @@
               <background color="-1854821"/>
               <font name="Bernard MT Condensed" size="16" style="0"/>
               <icon value="icons-ventana/student.png"/>
-              <text value="Estudiantes   "/>
+              <text value="Usuarios        "/>
             </properties>
           </component>
           <component id="23004" class="javax.swing.JButton" binding="singOutButton" default-binding="true">
             <constraints>
-              <grid row="11" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="10" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <background color="-1854821"/>
@@ -75,7 +64,7 @@
           </component>
           <component id="8c0d4" class="javax.swing.JButton" binding="laboratoriosButton" default-binding="true">
             <constraints>
-              <grid row="9" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="8" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <background color="-1854821"/>
@@ -86,7 +75,7 @@
           </component>
           <vspacer id="309b2">
             <constraints>
-              <grid row="10" column="0" row-span="1" col-span="2" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+              <grid row="9" column="0" row-span="1" col-span="2" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
             </constraints>
           </vspacer>
           <component id="b5a1b" class="javax.swing.JLabel">
@@ -124,7 +113,7 @@
           </vspacer>
           <vspacer id="f96ba">
             <constraints>
-              <grid row="12" column="0" row-span="1" col-span="2" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+              <grid row="11" column="0" row-span="1" col-span="2" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
             </constraints>
           </vspacer>
           <vspacer id="da49f">
@@ -134,7 +123,7 @@
           </vspacer>
         </children>
       </grid>
-      <grid id="2e471" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="2e471" binding="opciones" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
           <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
