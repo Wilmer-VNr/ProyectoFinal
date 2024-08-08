@@ -3,6 +3,8 @@ package org.example;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -16,6 +18,7 @@ public class form1 {
     private JButton iniciarSesión;
     private JPasswordField passwordField1;
     private JComboBox perfil;
+    private JLabel ver;
 
     public form1() {
         iniciarSesión.addActionListener(new ActionListener() {
@@ -27,7 +30,7 @@ public class form1 {
 
                 String url = "jdbc:mysql://localhost:3306/aulaEsfot";
                 String user = "root";
-                String password = ""; // Asegúrate de que esta contraseña sea la correcta
+                String password = "";
 
                 String sql = "SELECT * FROM usuarios WHERE username = ? AND password = ? AND perfil = ?";
 
@@ -43,34 +46,42 @@ public class form1 {
                     ResultSet resultSet = preparedStatement.executeQuery();
 
                     if (resultSet.next()) {
-                        JOptionPane.showMessageDialog(mainPanel, "Inicio de sesión exitoso.");
-
-                        JFrame frame = new JFrame();
+                        System.out.println("Inicio de sesión exitoso.");
 
 
                         switch (role) {
                             case "Administrador":
-                                frame.setContentPane(new admin().mainPanel);
-                                frame.setTitle("Administrador");
+                                JFrame frame = new JFrame();
+
+                                frame.setContentPane(new admin().adminPanel);
+                                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                                frame.setSize(2000, 872);
+                                frame.setLocationRelativeTo(null);
+                                frame.setVisible(true);
                                 break;
                             case "Profesor":
-                                frame.setContentPane(new profesor().mainPanel);
-                                frame.setTitle("Profesor");
+                                JFrame frame2 = new JFrame();
+                                //frame2.setUndecorated(true);
+
+                                frame2.setContentPane(new profesor().profesorPanel);
+                                frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                                frame2.setSize(2000, 872);
+                                frame2.setLocationRelativeTo(null);
+                                frame2.setVisible(true);
                                 break;
                             case "Estudiante":
-                                frame.setContentPane(new estudiante().mainPanel);
-                                frame.setTitle("Estudiante");
+                                JFrame frame3 = new JFrame();
+                                //frame3.setUndecorated(true);
+                                frame3.setContentPane(new estudiante().estudiantePanel);
+                                frame3.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                                frame3.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                                frame3.setLocationRelativeTo(null);
+                                frame3.setVisible(true);
                                 break;
                             default:
                                 JOptionPane.showMessageDialog(mainPanel, "Perfil no reconocido.");
                                 return;
                         }
-
-                        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                        frame.setSize(400, 500);
-                        frame.setLocationRelativeTo(null);
-                        frame.setVisible(true);
-
                     } else {
                         JOptionPane.showMessageDialog(mainPanel, "Usuario, contraseña o perfil incorrectos.");
                     }
@@ -78,6 +89,19 @@ public class form1 {
                 } catch (SQLException ex) {
                     ex.printStackTrace();
                     JOptionPane.showMessageDialog(mainPanel, "Error al conectar con la base de datos.");
+                }
+            }
+        });
+        ver.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                // Cambiar el tipo del JPasswordField
+                if (passwordField1.getEchoChar() == '\u0000') { // Contraseña visible
+                    passwordField1.setEchoChar('⁎'); // Ocultar contraseña
+                    ver.setText("");
+                } else {
+                    passwordField1.setEchoChar('\u0000'); // Mostrar contraseña
+                    ver.setText("");
                 }
             }
         });
